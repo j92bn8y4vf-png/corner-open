@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Cache-Control" content="no-cache">
+<title>Abrir app Corner</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #09090B; color: #fff; font-family: -apple-system, system-ui, sans-serif; }
+  main { max-width: 420px; margin: 0 auto; padding: 40px 20px; text-align: center; }
+  h1 { font-size: 26px; margin: 0 0 8px; }
+  p { color: #aaa; line-height: 1.5; margin: 8px 0; }
+  .btn { display: block; border-radius: 999px; padding: 18px; font-size: 18px; font-weight: 700; text-decoration: none; margin: 20px 0 0; }
+  .open { background: #E10600; color: #fff; }
+  .store { border: 1px solid #333; color: #fff; }
+  .small { font-size: 13px; color: #777; margin-top: 28px; }
+  .closed { border: 1px solid #333; border-radius: 16px; padding: 18px; margin-top: 20px; color: #ddd; }
+</style>
+</head>
+<body>
+<main>
+  <h1>App Corner (teste)</h1>
+  <div id="live" hidden>
+    <p>Abrindo no Expo Go…<br>Expo Go에서 여는 중…</p>
+    <a class="btn open" id="open" href="#">Abrir no Expo Go<br><span style="font-size:15px;font-weight:600">Expo Go로 열기</span></a>
+    <p class="small" id="until"></p>
+  </div>
+  <div id="off" class="closed" hidden>O app de teste está fechado agora. Tente mais tarde.<br>지금은 시험 앱이 닫혀 있어요. 나중에 다시 열어 주세요.</div>
+  <p style="margin-top:28px">Não tem o Expo Go? Instale e depois abra este link de novo.<br>Expo Go가 없으면 설치한 뒤 이 링크를 다시 여세요.</p>
+  <a class="btn store" href="https://apps.apple.com/app/expo-go/id982107779">Baixar Expo Go na App Store<br><span style="font-size:15px;font-weight:600">App Store에서 Expo Go 받기</span></a>
+  <p class="small">Se nada acontecer dentro do WhatsApp, abra esta página no Safari.<br>WhatsApp 안에서 안 되면 Safari로 열어 주세요.</p>
+</main>
+<script>
+  var LINK = '';
+  var UNTIL = '';
+  if (LINK) {
+    document.getElementById('live').hidden = false;
+    document.getElementById('open').href = LINK;
+    if (UNTIL) document.getElementById('until').textContent = 'Link válido até ' + UNTIL + ' (Dubai). · 링크는 ' + UNTIL + '(두바이)까지.';
+    setTimeout(function () { window.location.href = LINK; }, 300);
+  } else {
+    document.getElementById('off').hidden = false;
+  }
+</script>
+</body>
+</html>
